@@ -5,8 +5,8 @@ resource "azurerm_linux_web_app" "appservice" {
   resource_group_name = azurerm_resource_group.resource_group.name
   service_plan_id     = azurerm_service_plan.appserviceplan1.id
   https_only          = true
-  client_cert_enabled = true
-  client_cert_mode = "Required"
+  client_certificate_enabled = true
+  client_certificate_mode = "Required"
 
 
   site_config {}
