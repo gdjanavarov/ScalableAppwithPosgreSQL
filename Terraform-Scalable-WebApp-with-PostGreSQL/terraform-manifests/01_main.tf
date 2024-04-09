@@ -6,13 +6,19 @@ terraform {
       source = "hashicorp/azurerm"
     }
   }
+      backend "azurerm" {
+        resource_group_name  = "tfstate"
+        storage_account_name = "drkxenvdiag"
+        container_name       = "tfstate"
+        key                  = "terraform.tfstate"
+    }
 }
 
 # Provider Block
 provider "azurerm" {
   features {}
 }
-
+    
 # Create the resoure group for the resources
 resource "azurerm_resource_group" "resource_group" {
   name     = "${var.environment}-${var.resource_group_name}"
